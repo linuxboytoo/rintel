@@ -172,7 +172,6 @@ module Rintel
       clear_cookie
 
       page = @agent.get('https://www.ingress.com/intel')
-      old_agent = @agent.user_agent_alias
       @agent.user_agent_alias = 'Mechanize'
       page = @agent.click page.link_with(:text => /Sign in/)
 
@@ -192,7 +191,7 @@ module Rintel
           form.checkbox_with(name: 'PersistentCookie').check
         end.click_button
       end
-      @agent.user_agent_alias = old_agent
+      @agent.user_agent_alias = 'Windows Chrome'
       page = @agent.get('https://www.ingress.com/intel')
 
       if csrftoken
