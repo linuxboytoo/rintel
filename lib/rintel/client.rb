@@ -181,6 +181,7 @@ module Rintel
 #      end.click_button
 
       page = page.form_with(:action => /signin\/v1\/lookup/) do |form|
+puts form
         form.Email = @username
       end.click_button
 
