@@ -174,15 +174,8 @@ module Rintel
       page = @agent.get('https://www.ingress.com/intel')
       page = @agent.click page.link_with(:text => /Sign in/)
 
-#      page = page.form_with(:action => /AccountLoginInfo/) do |form|
-#        form.action = 'https://accounts.google.com/ServiceLoginAuth'
-#        form.Email  = @username
-#        form.Passwd = @password
-#      end.click_button
-
       page = page.form_with(:action => /signin\/v1\/lookup/) do |form|
-puts form
-        form.Email = @username
+        form.Email = 'lbt000001@gmail.com'
       end.click_button
 
       page = page.form_with(:action => /signin\/challenge\/sl\/password/) do |form|
@@ -197,6 +190,8 @@ puts form
           form.checkbox_with(name: 'PersistentCookie').check
         end.click_button
       end
+
+      page = @agent.get('https://www.ingress.com/intel')
 
       if csrftoken
         @agent.cookie_jar.save(@@cookie_path)
