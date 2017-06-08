@@ -156,7 +156,8 @@ module Rintel
         end
       rescue JSON::ParserError, Mechanize::ResponseCodeError => e
         @log.error '%s. login and retry...' % e.class
-        clear_cookie && retry
+        #clear_cookie && retry
+        return false
       rescue GoogleLoginError => e
         abort 'login failed.'
       end
