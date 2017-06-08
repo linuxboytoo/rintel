@@ -177,7 +177,7 @@ module Rintel
       page = @agent.click page.link_with(:text => /Sign in/)
 
       page = page.form_with(:action => /signin\/v1\/lookup/) do |form|
-        form.Email = 'lbt000001@gmail.com'
+        form.Email = @username
       end.click_button
 
       page = page.form_with(:action => /signin\/challenge\/sl\/password/) do |form|
