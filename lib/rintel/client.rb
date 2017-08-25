@@ -48,6 +48,9 @@ module Rintel
         @log.error '%s. login and retry...' % e.class
         clear_cookie && retry
       rescue GoogleLoginError => e
+        puts "GOOGLE LOGIN ERROR 1"
+        puts e.inspect
+        puts e.backtrace
         abort 'login failed.'
       end
     end
@@ -101,6 +104,9 @@ module Rintel
         @log.error '%s. login and retry...' % e.class
         clear_cookie && retry
       rescue GoogleLoginError => e
+        puts "GOOGLE LOGIN ERROR 2"
+        puts e.inspect
+        puts e.backtrace
         abort 'login failed.'
       end
     end
@@ -159,6 +165,9 @@ module Rintel
         #clear_cookie && retry
         return false
       rescue GoogleLoginError => e
+        puts "GOOGLE LOGIN ERROR 3"
+        puts e.inspect
+        puts e.backtrace
         abort 'login failed.'
       end
     end
